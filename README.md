@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # login_ui
 
 A new Flutter application.
@@ -17,4 +16,3 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 =======
 # login_ui
->>>>>>> 55aee8d958e5476a18e4fab22784082c6fac695e
