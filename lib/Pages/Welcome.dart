@@ -30,19 +30,19 @@ class _WelcomeState extends State<Welcome> {
           ),
           Container(
             child: SingleChildScrollView(
-              padding: EdgeInsets.symmetric(horizontal:40,vertical: 120),
+              padding: EdgeInsets.symmetric(horizontal: 40, vertical: 120),
               child: Column(
                 children: [
                   Container(
                     width: double.infinity,
-                    decoration: BoxDecoration(
-                    ),
+                    decoration: BoxDecoration(),
                     child: RaisedButton(
                       elevation: 5.0,
-                      onPressed: (){
+                      onPressed: () {
                         print('Sign IN');
                       },
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)),
                       color: Colors.white,
                       child: Text(
                         'SIGN IN',
@@ -59,14 +59,14 @@ class _WelcomeState extends State<Welcome> {
                   ),
                   Container(
                     width: double.infinity,
-                    decoration: BoxDecoration(
-                    ),
+                    decoration: BoxDecoration(),
                     child: RaisedButton(
                       elevation: 5.0,
-                      onPressed: (){
+                      onPressed: () {
                         print('Sign Up');
                       },
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)),
                       color: Colors.white,
                       child: Text(
                         'SIGN UP',
