@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:login_ui/Pages/Constant.dart';
+import 'package:login_ui/Pages/signin.dart';
 
 class Welcome extends StatefulWidget {
   @override
@@ -39,7 +39,10 @@ class _WelcomeState extends State<Welcome> {
                     child: RaisedButton(
                       elevation: 5.0,
                       onPressed: () {
-                        print('Sign IN');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => signin()),
+                        );
                       },
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)),
