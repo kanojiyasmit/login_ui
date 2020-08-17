@@ -173,34 +173,14 @@ class _signinState extends State<signin> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          GestureDetector(
-            onTap: () {
-              print('Login With FAcebook');
-            },
-            child: Container(
-              height: 60.0,
-              width: 60.0,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black26,
-                    offset: Offset(0, 2),
-                    blurRadius: 6.0,
-                  ),
-                ],
-                image: DecorationImage(
-                  image: AssetImage('assets/Images/Google.png'),
-                ),
-              ),
+          CircleAvatar(
+            radius: 30,
+            child: Image(
+              image: AssetImage('assets/images/facebook.png'),
             ),
+
           ),
-          GestureDetector(
-            onTap: () {
-              print('Login With FAcebook');
-            },
-            child: Container(
+            Container(
               height: 60.0,
               width: 60.0,
               decoration: BoxDecoration(
@@ -218,7 +198,6 @@ class _signinState extends State<signin> {
                 ),
               ),
             ),
-          ),
         ],
       ),
     );
