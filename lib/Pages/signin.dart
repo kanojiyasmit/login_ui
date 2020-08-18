@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:login_ui/Pages/signup.dart';
 
 class signin extends StatefulWidget {
   @override
@@ -7,12 +9,13 @@ class signin extends StatefulWidget {
 }
 
 class _signinState extends State<signin> {
+  bool _remember = false ;
   Widget _buildemail() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Email Id',
+          'Email',
           style: GoogleFonts.openSans(
             color: Colors.white,
           ),
@@ -20,7 +23,7 @@ class _signinState extends State<signin> {
         SizedBox(height: 2.0),
         Container(
           alignment: Alignment.centerLeft,
-          height: 60.0,
+          height: 50.0,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
             color: Colors.white38,
@@ -40,7 +43,7 @@ class _signinState extends State<signin> {
                 color: Colors.white,
               ),
               contentPadding: EdgeInsets.only(top: 14),
-              hintText: 'Enter Your Email Id',
+              hintText: 'Enter Your Email',
               hintStyle: GoogleFonts.openSans(
                 color: Colors.white38,
               ),
@@ -65,7 +68,7 @@ class _signinState extends State<signin> {
         SizedBox(height: 2.0),
         Container(
           alignment: Alignment.centerLeft,
-          height: 60.0,
+          height: 50.0,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
             color: Colors.white38,
@@ -98,7 +101,7 @@ class _signinState extends State<signin> {
     );
   }
 
-  Widget _buildreme() {
+  Widget _buildforgot() {
     return Container(
       alignment: Alignment.centerRight,
       padding: EdgeInsets.only(right: 1.0),
@@ -111,17 +114,50 @@ class _signinState extends State<signin> {
           style: GoogleFonts.openSans(
             textStyle: TextStyle(
               color: Colors.white,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),
       ),
     );
   }
-
+  Widget _buildreme() {
+    return Container(
+      padding: EdgeInsets.only(left: 0.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Theme(
+            data: ThemeData(
+              unselectedWidgetColor: Colors.white,
+            ),
+            child: Checkbox(
+              checkColor: Colors.green,
+              activeColor: Colors.white,
+              value: _remember,
+              onChanged: (value){
+                setState(() {
+                  _remember = value;
+                });
+              },
+            ),
+          ),
+          Text(
+            'Remeber Me',
+            style: GoogleFonts.openSans(
+              textStyle: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
   Widget _buildlogin() {
     return Container(
+      height: 50.0,
       width: double.infinity,
-      decoration: BoxDecoration(),
       child: RaisedButton(
         elevation: 5.0,
         onPressed: () {},
@@ -151,6 +187,7 @@ class _signinState extends State<signin> {
             textStyle: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w400,
+              fontSize: 16,
             ),
           ),
         ),
@@ -166,65 +203,90 @@ class _signinState extends State<signin> {
       ],
     );
   }
-
   Widget _buildsocial() {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 20.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          CircleAvatar(
-            radius: 30,
-            child: Image(
-              image: AssetImage('assets/images/facebook.png'),
-            ),
-
-          ),
-            Container(
-              height: 60.0,
-              width: 60.0,
+          GestureDetector(
+            onTap: (){
+              print('Facebbok');
+            },
+            child: Container(
+              height: 50.0,
+              width: 50.0,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black26,
-                    offset: Offset(0, 2),
+                    offset: Offset(0,2),
                     blurRadius: 6.0,
                   ),
                 ],
                 image: DecorationImage(
-                  image: AssetImage('assets/Images/Facebook.png'),
+                  image: AssetImage('assets/images/facebook.jpg'),
                 ),
               ),
             ),
+          ),
+          GestureDetector(
+            onTap: (){
+              print('Google');
+            },
+            child: Container(
+              height: 50.0,
+              width: 50.0,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black26,
+                    offset: Offset(0,2),
+                    blurRadius: 6.0,
+                  ),
+                ],
+                image: DecorationImage(
+                  image: AssetImage('assets/images/Google.png'),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
-
   Widget _signup() {
-    return RichText(
-      text: TextSpan(
-        children: [
-          TextSpan(
-            text: 'Don\'t have an Account ? ',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18.0,
-              fontWeight: FontWeight.w400,
-            ),
+    return InkWell(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context) => signup()),
+        );
+      },
+      child: RichText(
+          text: TextSpan(
+            children: [
+              TextSpan(
+                text: 'Don\'t have an Account ? ',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17.0,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              TextSpan(
+                text: 'Sign Up',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
-          TextSpan(
-            text: 'Sign Up',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
-      ),
+        ),
     );
   }
 
@@ -248,13 +310,13 @@ class _signinState extends State<signin> {
             ),
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 80),
+            padding: EdgeInsets.fromLTRB(40, 80, 40, 0),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'SIGN IN',
+                    'Sign In',
                     style: GoogleFonts.openSans(
                       textStyle: TextStyle(
                         fontSize: 25.0,
@@ -263,17 +325,20 @@ class _signinState extends State<signin> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 50.0),
-                  _buildemail(),
                   SizedBox(height: 30.0),
+                  _buildemail(),
+                  SizedBox(height: 20.0),
                   _buildpassword(),
                   SizedBox(height: 10.0),
+                  _buildforgot(),
+                  SizedBox(height:20.0),
                   _buildreme(),
-                  SizedBox(height: 50.0),
+                  SizedBox(height:10.0),
                   _buildlogin(),
                   SizedBox(height: 20.0),
                   _buildother(),
                   _buildsocial(),
+                  SizedBox(height: 70.0),
                   _signup(),
                 ],
               ),
