@@ -1,2 +1,2 @@
 # Flutter Login UI
-## [a link](https://github.com/user/repo/blob/branch/other_file.md)
+## [Design Credit](https://github.com/user/repo/blob/branch/other_file.md)
